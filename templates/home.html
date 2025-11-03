@@ -1,99 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chatbot Home</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f6f9;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-        main {
-            max-width: 600px;
-            margin: 50px auto;
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        .chat-box {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 1rem;
-            height: 300px;
-            overflow-y: auto;
-            margin-bottom: 1rem;
-        }
-        .input-area {
-            display: flex;
-            gap: 10px;
-        }
-        input[type="text"] {
-            flex: 1;
-            padding: 0.8rem;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 0.8rem 1.2rem;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h2>Django Chatbot</h2>
-    </header>
-    <main>
-        <h1>Welcome!</h1>
-        <div class="chat-box" id="chat-box">
-            <p><strong>Bot:</strong> Hi there! How can I help you today?</p>
-        </div>
+<!-- templates/home.html -->
+{% extends 'base.html' %}
 
-        <div class="input-area">
-            <input type="text" id="user-input" placeholder="Type your message..." />
-            <button onclick="sendMessage()">Send</button>
-        </div>
-    </main>
+{% block title %}Home | Elimisha{% endblock %}
 
-    <script>
-        function sendMessage() {
-            const input = document.getElementById('user-input');
-            const chatBox = document.getElementById('chat-box');
+{% block content %}
+  <div class="text-center mt-5">
+    <h1>Welcome to Elimisha, {{ user.username }} 🎉</h1>
+    <p class="lead">Your personalized learning companion.</p>
+    <a href="{% url 'logout' %}" class="btn btn-lg mt-3 text-white" style="background-color: #149800ff;"; border:none;">Logout</a>
 
-            if (input.value.trim() === '') return;
-
-            const userMessage = document.createElement('p');
-            userMessage.innerHTML = `<strong>You:</strong> ${input.value}`;
-            chatBox.appendChild(userMessage);
-
-            const botReply = document.createElement('p');
-            botReply.innerHTML = `<strong>Bot:</strong> I'm just a demo bot for now.`;
-            chatBox.appendChild(botReply);
-
-            input.value = '';
-            chatBox.scrollTop = chatBox.scrollHeight;
-        }
-    </script>
-</body>
-</html>
+  </div>
+ 
+{% endblock %}
+{

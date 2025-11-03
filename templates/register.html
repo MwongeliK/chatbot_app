@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Register | Elimisha{% endblock %}
+
+{% block content %}
+<div class="d-flex align-items-center justify-content-center vh-100">
+  <div class="card shadow p-4" style="width: 360px;">
+    <h3 class="text-center mb-4 text-primary">Create an Account</h3>
+
+    <form method="POST" action="{% url 'register' %}">
+      {% csrf_token %}
+
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" name="username" id="username" autocomplete="new-username" placeholder="Enter username" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" name="email" id="email" autocomplete="new-email" placeholder="Enter email" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="password1" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password1" id="password1" autocomplete="new-Password" placeholder="Enter password" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="password2" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" name="password2" id="password2" autocomplete="new-Confirm Password" placeholder="Confirm password" required>
+      </div>
+
+    
+
+      <button type="submit" class="btn btn-lg w-100 text-white" style="background-color: #149800; border:none;">
+        Register
+      </button>
+
+      <div class="text-center mt-3">
+        <small>Already have an account? <a href="{% url 'login' %}">Login</a></small>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

@@ -1,27 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | Chatbot App</title>
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
-</head>
-<body>
-    <div class="login-container">
-        <h2>Welcome Back</h2>
-        <form method="POST">
-            {% csrf_token %}
-            <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit" class="btn">Login</button>
-        </form>
-        <p class="signup-text">Don’t have an account? <a href="#">Sign up</a></p>
-    </div>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Login | Elimisha{% endblock %}
+
+{% block content %}
+
+<div class="bg-image vh-100 vw-100 d-flex align-items-center justify-content-center"
+     style="
+        background-image: url('{% static 'img/ELIMISHA_IMAGE.png' %}');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        position: relative;
+      
+     ">
+
+  <!-- Dark overlay -->
+  <div style="
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 1;
+      ">
+  </div>
+
+  <!-- Centered Card -->
+  <div class="card shadow p-4"
+       style="
+          width: 380px;
+          background-color: rgba(255, 255, 255, 0.9);
+          border: none;
+          z-index: 2;
+       ">
+    <h3 class="text-center mb-4" style="color: #149800;">Login to Elimisha</h3>
+
+    <!-- Login Form -->
+    <form method="POST" action="{% url 'login' %}">
+      {% csrf_token %}
+      
+      <!-- Username -->
+      <div class="mb-3">
+        <label for="username" class="form-label">Username or Email</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="username" 
+          name="username" 
+          placeholder="Enter your username"
+          required>
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input 
+          type="password" 
+          class="form-control" 
+          id="password" 
+          name="password" 
+          placeholder="Enter your password"
+          required>
+      </div>
+
+      <!-- Error -->
+      {% if error %}
+        <div class="alert alert-danger" role="alert">
+          {{ error }}
+        </div>
+      {% endif %}
+
+      <!-- Button -->
+      <button type="submit"  
+              class="btn btn-lg mt-3 text-white w-100"
+              style="background-color: #149800; border:none;">
+        Login
+      </button>
+
+      <div class="text-center mt-2">
+        <a href="{% url 'password_reset' %}" class="text-muted">Forgot your password?</a>
+      </div>
+
+      <div class="text-center mt-3">
+        <small>Don't have an account? <a href="{% url 'register' %}">Sign up</a></small>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

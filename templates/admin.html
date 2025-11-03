@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Panel | Elimisha{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Admin Dashboard</h2>
+
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <div class="card border-primary">
+        <div class="card-body text-center">
+          <h5 class="card-title">Manage Users</h5>
+          <p class="card-text">View or remove users from the system.</p>
+          <a href="#" class="btn btn-primary">View Users</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <div class="card border-success">
+        <div class="card-body text-center">
+          <h5 class="card-title">Manage Quizzes</h5>
+          <p class="card-text">Add, edit, or delete quizzes.</p>
+          <a href="#" class="btn btn-success">Edit Quizzes</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <div class="card border-warning">
+        <div class="card-body text-center">
+          <h5 class="card-title">View Reports</h5>
+          <p class="card-text">See student performance analytics.</p>
+          <a href="#" class="btn btn-warning">View Reports</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

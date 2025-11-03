@@ -1,0 +1,16 @@
+<!-- templates/profile.html -->
+{% extends 'base.html' %}
+
+{% block title %}Profile | Elimisha{% endblock %}
+
+{% block content %}
+<div class="card mx-auto" style="max-width: 500px;">
+  <div class="card-body text-center">
+    <img src="https://via.placeholder.com/120" class="rounded-circle mb-3" alt="Profile Picture">
+    <h4>Roselyne</h4>
+    <p>Email: mwongeli.kyalo04@gmail.com</p>
+    <p>Member since: July 2024</p>
+    <a href="{% url 'Dashboard' %}" class="btn btn-primary mt-3">View Progress</a>
+  </div>
+</div>
+{% endblock %}

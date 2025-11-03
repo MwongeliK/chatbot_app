@@ -17,16 +17,39 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from chatbot_app import views
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
+    
     path('admin/', admin.site.urls),
-    path('home/', views.home, name='home'),
-    path('Login/', views.login, name='Login'),
-    path('Dashboard/', views.dashboard, name='Progress Dashboard'),
-    path('chat/', views.chat, name='chatbot'),
+    path('', views.login_view, name='login'), 
+    path('login', views.login_view, name='login'),
+    path('Home/', views.home, name='Home'),
+    path('Dashboard/', views.dashboard, name='Dashboard'),
+    path('chat/', views.chat, name='chat'),
     path('quiz/', views.quiz, name='quiz'),
     path('profile/', views.profile, name='profile'),
+    path('modules/', views.modules , name= 'Modules'),
+    path('logout/', views.logout_view, name='logout'),
+    path('register/', views.register_view, name='register'), 
     path('', include('chatbot_app.urls')),
 
+    path('password_reset/', 
+         auth_views.PasswordResetView.as_view(template_name='password_reset.html'), 
+         name='password_reset'),
+
+    path('password_reset/done/', 
+         auth_views.PasswordResetDoneView.as_view(template_name='password_reset_done.html'), 
+         name='password_reset_done'),
+
+    path('reset/<uidb64>/<token>/', 
+         auth_views.PasswordResetConfirmView.as_view(template_name='password_reset_confirm.html'), 
+         name='password_reset_confirm'),
+
+    path('reset/done/', 
+         auth_views.PasswordResetCompleteView.as_view(template_name='password_reset_complete.html'), 
+         name='password_reset_complete'),
 ]
+
+

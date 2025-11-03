@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Chat | Elimisha{% endblock %}
+
+{% block content %}
+<div class="container mt-5" style="max-width: 700px;">
+  <h2 class="text-center mb-4">Elimisha Assistant</h2>
+
+  <div class="card shadow-sm">
+    <div class="card-body" id="chat-box" style="height: 400px; overflow-y: auto; background-color:#f8f9fa;">
+      <div class="text-muted small text-center">Chat started...</div>
+    </div>
+
+    <div class="card-footer d-flex">
+      <input type="text" id="user-input" class="form-control me-2" placeholder="Type your message...">
+      <button class="btn btn-primary" id="send-btn">Send</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const chatBox = document.getElementById('chat-box');
+  const input = document.getElementById('user-input');
+  const sendBtn = document.getElementById('send-btn');
+
+  sendBtn.onclick = () => {
+    const text = input.value.trim();
+    if (text) {
+      const userMsg = `<div class="text-end mb-2"><span class="badge bg-primary">${text}</span></div>`;
+      chatBox.innerHTML += userMsg;
+      input.value = '';
+
+      // Simulate bot reply
+      setTimeout(() => {
+        const botMsg = `<div class="text-start mb-2"><span class="badge bg-secondary">I'm thinking...</span></div>`;
+        chatBox.innerHTML += botMsg;
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }, 800);
+    }
+  };
+</script>
+{% endblock %}
+
+

@@ -1,0 +1,53 @@
+<!-- templates/modules.html -->
+{% extends 'base.html' %}
+
+{% block title %}Modules | Elimisha{% endblock %}
+
+{% block content %}
+  <section class="text-center py-4">
+    <h1 class="text-emerald fw-bold">Available Learning Modules</h1>
+    <p class="text-muted mt-2">Choose a module below to start learning 📚</p>
+  </section>
+
+  <div class="row g-4">
+    <div class="col-md-4 col-lg-3">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body text-center">
+          <h5 class="card-title text-emerald fw-bold">Mathematics</h5>
+          <p class="card-text text-muted">Master numbers, algebra, and geometry with interactive exercises.</p>
+          <a href="#" class="btn btn-emerald">Start Learning</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-lg-3">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body text-center">
+          <h5 class="card-title text-emerald fw-bold">Science</h5>
+          <p class="card-text text-muted">Explore physics, chemistry, and biology in a fun, easy way.</p>
+          <a href="#" class="btn btn-emerald">Start Learning</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-lg-3">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body text-center">
+          <h5 class="card-title text-emerald fw-bold">English</h5>
+          <p class="card-text text-muted">Improve grammar, vocabulary, and communication skills.</p>
+          <a href="#" class="btn btn-emerald">Start Learning</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 col-lg-3">
+      <div class="card h-100 shadow-sm border-0">
+        <div class="card-body text-center">
+          <h5 class="card-title text-emerald fw-bold">Computer Studies</h5>
+          <p class="card-text text-muted">Learn coding, technology, and digital skills to succeed.</p>
+          <a href="#" class="btn btn-emerald">Start Learning</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
